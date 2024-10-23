@@ -1,0 +1,137 @@
+# depslib dependency file v1.0
+1729536620 source:c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729468678 source:c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729519044 c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\funciones.h
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729536320 source:c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729524715 c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\clientes.h
+	"funciones.h"
+	"empresa.h"
+	"inversion.h"
+
+1729543968 c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\empresa.h
+	"funciones.h"
+	"clientes.h"
+	"inversion.h"
+
+1729457394 c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\inversion.h
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+
+1729536615 source:c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\empresa.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"inversion.h"
+
+1729432718 source:c:\users\ignac\onedrive\universidad\programación de computadoras 2024_2\proyecto broker\inversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+
+1729680876 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729549587 c:\users\juan.saldana\downloads\onedrive-2024-10-21\funciones.h
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729680586 c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.h
+	"funciones.h"
+	"empresa.h"
+	"inversion.h"
+
+1729549587 c:\users\juan.saldana\downloads\onedrive-2024-10-21\empresa.h
+	"funciones.h"
+	"clientes.h"
+	"inversion.h"
+
+1729549587 c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.h
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+
+1729549587 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\empresa.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"inversion.h"
+
+1729552682 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
+1729549587 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+
+1729680796 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"funciones.h"
+	"clientes.h"
+	"empresa.h"
+	"inversion.h"
+
