@@ -12,6 +12,7 @@ typedef struct{
     char id[5]; //ID unico de empresa
     char nombre[51];
     float precio_actual;
+    float precio_anterior;
 } empresa;
 
 //Funciones para cargar y guardar empresas

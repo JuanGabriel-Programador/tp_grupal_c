@@ -58,8 +58,9 @@ void cargar_inversion (cliente clientes[], int *num_clientes, empresa empresas[]
     char empresa_id[5];
     int cantidad_acciones;
     float precio_compra;
+    float precio_empresa_comprado;
 
-    while (fscanf(archivo, "%[^,],%[^,],%[^,],%d,%f\n", cuit, fecha, empresa_id, &cantidad_acciones, &precio_compra) != EOF) {
+    while (fscanf(archivo, "%[^,],%[^,],%[^,],%d,%f,%f\n", cuit, fecha, empresa_id, &cantidad_acciones, &precio_compra,&precio_empresa_comprado) != EOF) {
         // Busca el cliente con el CUIT leído
         for (int i = 0; i < *num_clientes; i++) {
             if (strcmp(clientes[i].cuit, cuit) == 0) {
@@ -69,6 +70,7 @@ void cargar_inversion (cliente clientes[], int *num_clientes, empresa empresas[]
                 strcpy(clientes[i].inversiones[num_inversiones].empresa_id, empresa_id);
                 clientes[i].inversiones[num_inversiones].cantidad_acciones = cantidad_acciones;
                 clientes[i].inversiones[num_inversiones].precio_compra = precio_compra;
+                clientes[i].inversiones[num_inversiones].precio_empresa_comprado=precio_empresa_comprado;
                 clientes[i].num_inversiones++;
                 //printf("Inversion cargada: %s, %s, %d, %.2f\n", fecha, empresa_id, cantidad_acciones, precio_compra); // Verifica los datos cargados
                 //sleep(1);
@@ -88,12 +90,13 @@ void guardar_inversion(cliente clientes[], int *num_clientes, empresa empresas[]
     }
     for (int i = 0; i < *num_clientes; i++) {
         for (int k = 0; k < clientes[i].num_inversiones; k++){
-            fprintf(archivo, "%s,%s,%s,%d,%.2f\n",
+            fprintf(archivo, "%s,%s,%s,%d,%.2f,%.2f\n",
             clientes[i].cuit,
             clientes[i].inversiones[k].fecha,
             clientes[i].inversiones[k].empresa_id,
             clientes[i].inversiones[k].cantidad_acciones,
-            clientes[i].inversiones[k].precio_compra);
+            clientes[i].inversiones[k].precio_compra,
+            clientes[i].inversiones[k].precio_empresa_comprado);
         }
     }
     fclose(archivo);
@@ -113,8 +116,9 @@ void cargar_inversion_historial (cliente clientes[], int *num_clientes, empresa 
     char empresa_id[5];
     int cantidad_acciones;
     float precio_compra;
+    float precio_empresa_comprado;
 
-    while (fscanf(archivo, "%[^,],%[^,],%[^,],%d,%f\n", cuit, fecha, empresa_id, &cantidad_acciones, &precio_compra) != EOF) {
+    while (fscanf(archivo, "%[^,],%[^,],%[^,],%d,%f,%f\n", cuit, fecha, empresa_id, &cantidad_acciones, &precio_compra,&precio_empresa_comprado) != EOF) {
         // Busca el cliente con el CUIT leído
         for (int i = 0; i < *num_clientes; i++) {
             if (strcmp(clientes[i].cuit, cuit) == 0) {
@@ -124,6 +128,7 @@ void cargar_inversion_historial (cliente clientes[], int *num_clientes, empresa 
                 strcpy(clientes[i].inversiones_historial[num_inversiones_historial].empresa_id, empresa_id);
                 clientes[i].inversiones_historial[num_inversiones_historial].cantidad_acciones = cantidad_acciones;
                 clientes[i].inversiones_historial[num_inversiones_historial].precio_compra = precio_compra;
+                clientes[i].inversiones_historial[num_inversiones_historial].precio_empresa_comprado = precio_empresa_comprado;
                 clientes[i].num_inversiones_historial++;
                 //printf("Inversion cargada: %s, %s, %d, %.2f\n", fecha, empresa_id, cantidad_acciones, precio_compra); // Verifica los datos cargados
                 //sleep(1);
@@ -143,12 +148,13 @@ void guardar_inversion_historial(cliente clientes[], int *num_clientes, empresa 
     }
     for (int i = 0; i < *num_clientes; i++) {
         for (int k = 0; k < clientes[i].num_inversiones_historial; k++){
-            fprintf(archivo, "%s,%s,%s,%d,%.2f\n",
+            fprintf(archivo, "%s,%s,%s,%d,%.2f,%.2f\n",
             clientes[i].cuit,
             clientes[i].inversiones_historial[k].fecha,
             clientes[i].inversiones_historial[k].empresa_id,
             clientes[i].inversiones_historial[k].cantidad_acciones,
-            clientes[i].inversiones_historial[k].precio_compra);
+            clientes[i].inversiones_historial[k].precio_compra,
+            clientes[i].inversiones_historial[k].precio_empresa_comprado);
         }
     }
     fclose(archivo);
@@ -680,6 +686,7 @@ void menu_cliente (cliente clientes[], int posicion_cliente, int *num_clientes, 
 
         case 2:
             limpiar_consola();
+            menu_ver_rendimiento(clientes, posicion_cliente, num_clientes, empresas, num_empresas);
             break;
 
         case 3:
@@ -820,15 +827,16 @@ void ver_portafolio (cliente clientes[], int posicion_cliente){
 
     limpiar_consola();
     printf("MENU CLIENTE -> SU PORTAFOLIO\n\n");
-    printf("-----------------------------------------------\n");
-    printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL |\n");
-    printf("-----------------------------------------------\n\n");
+    printf("-----------------------------------------------------------------------\n");
+    printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL | PRECIO DE ACCION |\n");
+    printf("-----------------------------------------------------------------------\n\n");
     for (int i = 0; i < clientes[posicion_cliente].num_inversiones; i++){
-        printf("%s | %s | %d | $%.2f\n",
+        printf("%s | %s | %d | $%.2f | $%.2f\n",
                clientes[posicion_cliente].inversiones[i].fecha,
                clientes[posicion_cliente].inversiones[i].empresa_id,
                clientes[posicion_cliente].inversiones[i].cantidad_acciones,
-               clientes[posicion_cliente].inversiones[i].precio_compra);
+               clientes[posicion_cliente].inversiones[i].precio_compra,
+               clientes[posicion_cliente].inversiones[i].precio_empresa_comprado);
     }
     printf ("\n");
     system("pause");
@@ -849,15 +857,16 @@ void vender_acciones (cliente clientes[], int posicion_cliente, int *num_cliente
     limpiar_consola();
     printf("SISTEMA DE INVERSIONES -> VENTA DE ACCIONES\n\n");
     printf("SU PORTAFOLIO\n");
-    printf("-----------------------------------------------\n");
-    printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL |\n");
-    printf("-----------------------------------------------\n\n");
+    printf("------------------------------------------------------------------\n");
+    printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL | PRECIO COMPRA |\n");
+    printf("-------------------------------------------------------------------\n\n");
     for (int i = 0; i < clientes[posicion_cliente].num_inversiones; i++) {
-        printf("%s | %s | %d | $%.2f\n",
+        printf("%s | %s | %d | $%.2f | $%.2f\n",
                clientes[posicion_cliente].inversiones[i].fecha,
                clientes[posicion_cliente].inversiones[i].empresa_id,
                clientes[posicion_cliente].inversiones[i].cantidad_acciones,
-               clientes[posicion_cliente].inversiones[i].precio_compra);
+               clientes[posicion_cliente].inversiones[i].precio_compra,
+               clientes[posicion_cliente].inversiones[i].precio_empresa_comprado);
     }
 
     char seleccion[5];

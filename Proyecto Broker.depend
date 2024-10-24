@@ -67,7 +67,7 @@
 	"clientes.h"
 	"empresa.h"
 
-1729680876 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.c
+1729728343 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -82,17 +82,17 @@
 	"empresa.h"
 	"inversion.h"
 
-1729680586 c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.h
+1729725798 c:\users\juan.saldana\downloads\onedrive-2024-10-21\clientes.h
 	"funciones.h"
 	"empresa.h"
 	"inversion.h"
 
-1729549587 c:\users\juan.saldana\downloads\onedrive-2024-10-21\empresa.h
+1729726269 c:\users\juan.saldana\downloads\onedrive-2024-10-21\empresa.h
 	"funciones.h"
 	"clientes.h"
 	"inversion.h"
 
-1729549587 c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.h
+1729726919 c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.h
 	"funciones.h"
 	"clientes.h"
 	"empresa.h"
@@ -106,7 +106,7 @@
 	"clientes.h"
 	"inversion.h"
 
-1729552682 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\funciones.c
+1729727991 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -116,7 +116,7 @@
 	"empresa.h"
 	"inversion.h"
 
-1729549587 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.c
+1729728723 source:c:\users\juan.saldana\downloads\onedrive-2024-10-21\inversion.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

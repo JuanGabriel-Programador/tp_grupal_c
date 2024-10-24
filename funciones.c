@@ -177,7 +177,7 @@ void mostrar_inversiones_cliente (cliente clientes[], int *num_clientes){
     if (hay_inversion){
         printf("LISTADO DE INVERSIONES DE %s, %s\n\n", clientes[cliente_actual].apellido, clientes[cliente_actual].nombre);
         printf("-----------------------------------------------\n");
-        printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL |\n");
+        printf("| FECHA | EMPRESA | CANTIDAD COMPRADA | TOTAL | PRECIO COMPRA |\n");
         printf("-----------------------------------------------\n\n");
 
         for (int i = 0; i < clientes[cliente_actual].num_inversiones; i++){
@@ -185,7 +185,8 @@ void mostrar_inversiones_cliente (cliente clientes[], int *num_clientes){
                 clientes[cliente_actual].inversiones[i].fecha,
                 clientes[cliente_actual].inversiones[i].empresa_id,
                 clientes[cliente_actual].inversiones[i].cantidad_acciones,
-                clientes[cliente_actual].inversiones[i].precio_compra);
+                clientes[cliente_actual].inversiones[i].precio_compra,
+                clientes[cliente_actual].inversiones[i].precio_empresa_comprado);
         }
         printf ("\n");
         system("pause");
@@ -393,6 +394,7 @@ void menu_inversion(cliente clientes[], int posicion_cliente, int *num_clientes,
                                     strcpy (clientes[posicion_cliente].inversiones[nueva_inversion].empresa_id, empresas[posicion_empresa].id); //Guardo ID empresa (Abreviatura de la empresa)
                                     strcpy (clientes[posicion_cliente].inversiones[nueva_inversion].fecha, fecha); //Guardo fecha
                                     clientes[posicion_cliente].inversiones[nueva_inversion].precio_compra = total; //Guardo el precio comprado
+                                    clientes[posicion_cliente].inversiones[nueva_inversion].precio_empresa_comprado=empresas[posicion_empresa].precio_actual;
 
                                     clientes[posicion_cliente].saldo_cuenta = (clientes[posicion_cliente].saldo_cuenta - total); //Retiro saldo del cliente para la compra
 
@@ -419,7 +421,7 @@ void menu_inversion(cliente clientes[], int posicion_cliente, int *num_clientes,
                                     clientes[posicion_cliente].inversiones[encontro_inversion].cantidad_acciones+=cantidad_acciones_comprar;//Sumamos la cantidad
                                     clientes[posicion_cliente].inversiones[encontro_inversion].precio_compra+=total; //Sumamos el precio de compra con el total actual
                                     strcpy (clientes[posicion_cliente].inversiones[encontro_inversion].fecha, fecha); //cambiamos la fecha
-
+                                    clientes[posicion_cliente].inversiones[encontro_inversion].precio_empresa_comprado=empresas[posicion_empresa].precio_actual;
                                     clientes[posicion_cliente].saldo_cuenta = (clientes[posicion_cliente].saldo_cuenta - total); //restamos el saldo
 
                                     guardar_inversion(clientes, num_clientes, empresas, num_empresas);
@@ -445,7 +447,7 @@ void menu_inversion(cliente clientes[], int posicion_cliente, int *num_clientes,
                                     strcpy (clientes[posicion_cliente].inversiones_historial[nueva_inversion_historial].empresa_id, empresas[posicion_empresa].id); //Guardo ID empresa (Abreviatura de la empresa)
                                     strcpy (clientes[posicion_cliente].inversiones_historial[nueva_inversion_historial].fecha, fecha); //Guardo fecha
                                     clientes[posicion_cliente].inversiones_historial[nueva_inversion_historial].precio_compra = total; //Guardo el precio comprado
-
+                                    clientes[posicion_cliente].inversiones_historial[nueva_inversion_historial].precio_empresa_comprado=empresas[posicion_empresa].precio_actual;
                                     clientes[posicion_cliente].saldo_cuenta = (clientes[posicion_cliente].saldo_cuenta - total); //Retiro saldo del cliente para la compra
 
                                     clientes[posicion_cliente].num_inversiones_historial = (clientes[posicion_cliente].num_inversiones_historial + 1); //Guardo el numero de inversion

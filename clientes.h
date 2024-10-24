@@ -45,4 +45,10 @@ void ver_portafolio (cliente clientes[], int posicion_cliente);
 void vender_acciones (cliente clientes[], int posicion_cliente, int *num_clientes, empresa empresas[], int *num_empresas); //Funcion para la venta de acciones del cliente
 
 
+void menu_ver_rendimiento(cliente clientes[], int posicion_cliente, int *num_clientes, empresa empresas[], int *num_empresas);
+
+void ver_rendimiento(cliente clientes[], int posicion_cliente, empresa empresas[], int num_empresas);
+float calcular_valor_diario(cliente clientes[], int posicion_cliente, empresa empresas[], int num_empresas);
+float calcular_porcentaje_diario(cliente clientes[], int posicion_cliente, empresa empresas[], int num_empresas);
+
 #endif // CLIENTES_H_INCLUDED

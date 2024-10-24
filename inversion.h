@@ -13,6 +13,7 @@ typedef struct{
     int cantidad_acciones;
     float precio_compra;
     char fecha[11];
+    float precio_empresa_comprado;
 } inversion;
 
 #endif // INVERSION_H_INCLUDED
